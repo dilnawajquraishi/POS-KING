@@ -44,7 +44,13 @@ db().then(async () => {
     const SaleDetails = require('./routes/SalesDetailsRoute.js')
 
 
+    const orderStas = require('./routes/OrderState.js')
 
+
+
+
+
+    app.use('/api', orderStas)
     
 
     app.use('/api', productRoute)

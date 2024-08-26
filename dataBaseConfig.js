@@ -2,9 +2,8 @@ let mongoose = require('mongoose')
 
 const connection = async () => {
     try {
-        const connectionInstance = await mongoose.connect("mongodb+srv://sumit:s1234@sumit123.3uuc687.mongodb.net/?retryWrites=true&w=majority&appName=sumit123")
-        
-        console.log(`\n MongoDB connected !! DB HOST: ${connectionInstance.connection.host}`);
+        mongoose.connect('mongodb://127.0.0.1:27017/POS_KING')
+        .then(() => console.log('Connected!'));
         
     } catch (error) {
         console.log("MONGODB connection FAILED ", error);
