@@ -50,6 +50,22 @@ db().then(async () => {
     const setting = require('./routes/Setting.js')
 
 
+    const settingEmail = require('./routes/SettingMail.js')
+
+
+    const settingTax = require('./routes/SettingTax.js')
+
+
+    const AdministratorCategory = require('./routes/AdministratorCategory.js')
+
+
+    const AdministratorAddress = require('./routes/administratorAddressRoute.js')
+
+
+
+
+
+
 
 
 
@@ -82,10 +98,28 @@ db().then(async () => {
     app.use('/api',     purchage)
 
 
-    app.use('/api',     SaleDetails)
+    app.use('/api',   SaleDetails)
 
 
-    app.use('/api',     setting)
+    app.use('/api', setting)
+
+
+    app.use('/api', settingEmail)
+
+
+    app.use('/api',     settingTax )
+
+
+    app.use('/api', AdministratorCategory)
+
+
+    app.use('/api',   AdministratorAddress )
+
+
+
+
+
+
 
 
     
