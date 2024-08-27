@@ -32,6 +32,48 @@ let addaddress=await addressemployee.create({
 }
 
 
+// -------------------------UpdateAddress-----------------------------
+exports.updateAdministrator = async (req, res) => {
+    let _id = req.params._id;
+    let {name,email,phoneNumber,city,country,state,zipCode,streetAddress}=req.body;
+
+
+    try {
+        let findCustomer = await addressemployee.findById(_id);
+        if (findCustomer) {
+            findCustomer.name = name;
+            findCustomer.email = email;
+            findCustomer.phoneNumber = phoneNumber;
+            findCustomer.city = city;
+            findCustomer.country = country;
+            findCustomer.state = state;
+            findCustomer.zipCode = zipCode;
+            findCustomer.streetAddress = streetAddress;
+
+
+            await findCustomer.save();
+
+            return res.json({ success: true, message: "Administrator updated successfully", findCustomer });
+        } else {
+            return res.status(404).json({ success: false, message: "Administrator not found" });
+        }
+    } catch (error) {
+        return res.status(400).json({ success: false, error: error.message });
+    }
+};
+// -------------------------DeleteAddress-----------------------------
+exports.deleteAddress=async(req,res)=>{
+    let _id=req.params._id;
+try {
+    let deleteAddress=await addressemployee.findByIdAndDelete({_id:_id})
+    if(deleteAddress){
+        return res.status(200).json({success:true,message:"Address deleted successfully"})
+    }
+} catch (error) {
+    return res.status(400).json({success:false,error:error.message})
+    
+}
+}
 
 // --------------------FindAllAddress------------------
 exports.employAllAddress=async(req,res)=>{
