@@ -47,6 +47,10 @@ db().then(async () => {
     const orderStas = require('./routes/OrderState.js')
 
 
+    const setting = require('./routes/Setting.js')
+
+
+
 
 
 
@@ -79,6 +83,12 @@ db().then(async () => {
 
 
     app.use('/api',     SaleDetails)
+
+
+    app.use('/api',     setting)
+
+
+    
 
 
 
